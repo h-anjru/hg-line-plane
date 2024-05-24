@@ -29,9 +29,8 @@ The homogeneous point $P$ where $L$ intersects $W$ is found by
 
 $P=W_ \times L$   where    
 ```math
-$W_×=\begin{bmatrix} 𝜖𝟏 &\vec{n}_× \\\ \vec{n}^T & 0 \end{bmatrix}$
-```
-,
+W_×=\begin{bmatrix} 𝜖𝟏 &\vec{n}_× \\\ \vec{n}^T & 0 \end{bmatrix}
+```,
 
 $n_×$ being the cross product matrix operator, a skew-symmetric matrix.
 
