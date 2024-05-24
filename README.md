@@ -36,12 +36,14 @@ $n_×$ being the cross product matrix operator, a skew-symmetric matrix.
 
 For the special case where the objective plane is horizontal with a known elevation $h$ (i.e., $z=h$),
 
-$W_×=\begin{bmatrix}
-    h & 0 & 0 & 0 & -1 & 0 \\\
-    0 & h & 0 & 1 & 0 & 0 \\\
-    0 & 0 & h & 0 & 0 & 0 \\\
+```math
+W_×=\begin{bmatrix}
+    h & 0 & 0 & 0 & -1 & 0 \\
+    0 & h & 0 & 1 & 0 & 0 \\
+    0 & 0 & h & 0 & 0 & 0 \\
     0 & 0 & 1 & 0 & 0 & 0
-\end{bmatrix}$ 
+\end{bmatrix}
+```
 
 ## Creating a georeferenced point cloud
 This tool can generate a set of 3D points, but those points will not be recognized as georeferenced by geospatial software without the appending of metadata about the data’s coordinate system. LASTools, for example, could be used to append the proper metadata to the generated point cloud, including horizontal datum and projection, vertical datum, and units (e.g. meters).
