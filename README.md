@@ -27,16 +27,16 @@ A plane with normal $\vec{n}$ passing through a point $r$ is represented homogen
 
 The homogeneous point $P$ where $L$ intersects $W$ is found by 
 
-$P=W_ \times L$   where    $W_×=\begin{bmatrix} 𝜖𝟏 &\vec{n}_×\\ \vec{n}^T & 0 \end{bmatrix}$,
+$P=W_ \times L$   where    $W_×=\begin{bmatrix} 𝜖𝟏 &\vec{n}_× \\\ \vec{n}^T & 0 \end{bmatrix}$,
 
 $n_×$ being the cross product matrix operator, a skew-symmetric matrix.
 
 For the special case where the objective plane is horizontal with a known elevation $h$ (i.e., $z=h$),
 
 $W_×=\begin{bmatrix}
-    h & 0 & 0 & 0 & -1 & 0 \\
-    0 & h & 0 & 1 & 0 & 0 \\
-    0 & 0 & h & 0 & 0 & 0 \\
+    h & 0 & 0 & 0 & -1 & 0 \\\
+    0 & h & 0 & 1 & 0 & 0 \\\
+    0 & 0 & h & 0 & 0 & 0 \\\
     0 & 0 & 1 & 0 & 0 & 0
 \end{bmatrix}$ 
 
