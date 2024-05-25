@@ -34,9 +34,7 @@ $P=W_ \times L$   where
 ```math
 W_×=\begin{bmatrix} 𝜖𝟏 &\vec{n}_× \\ \vec{n}^T & 0 \end{bmatrix}
 ```
-,
-
-$n_×$ being the cross product matrix operator, a skew-symmetric matrix.
+with $n_×$ being the cross product matrix operator, a skew-symmetric matrix.
 
 For the special case where the objective plane is horizontal with a known elevation $h$ (i.e., $z=h$),
 
@@ -60,13 +58,15 @@ The script requires as input
 The control file layout expected is a CSV file from Agisoft Metashape, formatted as such:
 
 ```
-# CoordinateSystem: PROJCS["WGS 84 / UTM zone 17N",GEOGCS["WGS 84",DATUM["World Geodetic System 1984 ensemble",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.01745329251994328,AUTHORITY["EPSG","9102"]],AUTHORITY["EPSG","4326"]],PROJECTION["Transverse_Mercator",AUTHORITY["EPSG","9807"]],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-81],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AUTHORITY["EPSG","32617"]]
+# CoordinateSystem: [WKT of projected coordinate system]
 #Label,X/Easting,Y/Northing,Z/Altitude,Yaw,Pitch,Roll
-1001.jpg,565519.719229,3943488.934564,283.142000,-134.797034,1.223842,-0.361050
-1002.jpg,565528.466400,3943513.544800,283.140000,24.505687,2.159064,-2.120978
+1001.jpg,265519.719229,943488.934564,283.142000,-134.797034,1.223842,-0.361050
+1002.jpg,265528.466400,943513.544800,283.140000,24.505687,2.159064,-2.120978
 ```
 
-The control file's contents is loaded into a table. The script will iterate through each photo found at the specified path and look for its corresponding table entry.
+The geometric assumptions made for the line-plane solver require that the control data be transformed into a projected coordinate system (easting, northing, elevation). The script will not work with control data in lon/lat.
+
+The control file's contents is loaded into a table by the script. The script will iterate through each photo found at the specified path and look for its corresponding control table entry. Therefore, there need not be a one-to-one correspondence between the control data and the photos to be projected.
 
 ## Creating a georeferenced point cloud
 This tool can generate a set of 3D points, but those points will not be recognized as georeferenced by geospatial software without the appending of metadata about the data’s coordinate system. LASTools, for example, could be used to append the proper metadata to the generated point cloud, including horizontal datum and projection, vertical datum, and units (e.g. meters).
